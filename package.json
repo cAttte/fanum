@@ -1,0 +1,18 @@
+{
+    "name": "fanum",
+    "version": "0.0.0",
+    "description": "A JavaScript profanity filter.",
+    "main": "src/index.js",
+    "repository": "cAttte/fanum",
+    "keywords": [
+        "censor",
+        "profanity",
+        "filter"
+    ],
+    "author": "catte_",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/cAttte/fanum/issues"
+    },
+    "homepage": "https://github.com/cAttte/fanum#readme"
+}
