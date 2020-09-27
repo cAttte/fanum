@@ -80,6 +80,7 @@ export default {
         fuck: "frick",
         shitty: "crappy",
         shit: "crap",
+        fuck_off: "go away",
         piss_off: "go away",
         piss: "pee",
         dick: "penis",
