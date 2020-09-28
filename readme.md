@@ -27,9 +27,9 @@ const { Fanum } = require("fanum")
 const fanum = new Fanum()
 
 fanum.checkProfanity("fu ck shi t")
-//=> true
+// => true
 fanum.censorProfanity("holy sh.1t what the f uck")
-//=> "holy **** what the ****"
+// => "holy **** what the ****"
 ```
 
 #### constructor(options?)
@@ -187,3 +187,44 @@ Whether to replicate the style of replaced words. For example, `"fUCK"` will be 
 
 -   **Type:** `boolean`
 -   **Default:** `true`
+
+### Examples
+
+Here are _a few_ examples to get you started!
+
+#### Swear word counter
+
+```js
+const fanum = new Fanum()
+const inputString = "maybe use something like Inquirer to obtain user input?"
+const words = fanum.findProfanity(inputString).map(m => m.word)
+if (!words.length) {
+    console.log("Your string is clean!")
+} else {
+    const avg = words.map(w => w.length).reduce((a, b) => a + b) / words.length
+    console.log(
+        `Your string contains ${words.length} swear words, ` +
+            `with an average length of ${avg} letters.`
+    )
+}
+```
+
+#### Grawlix
+
+```js
+const fanum = new Fanum()
+const unholyString = "shut the fuck up you useless piece of shit"
+fanum.censorProfanity(unholyString, { mask: ["@", "#", "$", "%", "&", "!"] })
+// => "shut the #!%$ up you useless piece of $#!&"
+```
+
+#### Custom words
+
+```js
+const fanum = new Fanum()
+fanum.options.words.very = null
+fanum.options.words.bad = null
+const unholyString = "oh boy, these are some very bad words!"
+fanum.censorProfanity(unholyString, { mode: "static", mask: "[REDACTED]" })
+// => "oh boy, these are some [REDACTED] [REDACTED] words!"
+```
