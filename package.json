@@ -2,7 +2,7 @@
     "name": "fanum",
     "version": "0.0.0",
     "description": "A JavaScript profanity filter.",
-    "main": "src/index.js",
+    "main": "dist/index.js",
     "repository": "cAttte/fanum",
     "keywords": [
         "censor",
