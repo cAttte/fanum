@@ -15,6 +15,10 @@ type Profanities = Array<{
     replacement: string
 }>
 
+/**
+ * Find profanity in a string.
+ * @param {string} text The text to search for profanity in.
+ */
 export default function findProfanity(text: string): Profanities {
     const profanities = []
     for (const word of Object.keys(this.options.words)) {
