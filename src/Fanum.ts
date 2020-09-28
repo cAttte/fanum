@@ -22,7 +22,7 @@ type FanumOptions = {
  */
 export default class Fanum {
     options: FanumOptions = {
-        words: Object.assign(WORDS.TAME, WORDS.SWEARS, WORDS.INSULTS, WORDS.SLURS),
+        words: Object.assign(WORDS.SWEARS, WORDS.INSULTS, WORDS.SLURS),
         exceptions: EXCEPTIONS,
         maxCharacterSeparation: 25
     }
