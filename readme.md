@@ -169,7 +169,7 @@ The mask to use with `mode` `"mask"` or `"static"`. If an array, a random elemen
 
 ##### maskLengthBehavior
 
-How to detect how long masks should be. If `"raw"`, the input length will be used (`"b a d .w o r d"` will be converted to `"**************"`). If `"word"`, the length of the base word will be used (`"b a d .w o r d"` will be converted to `"*******"`). Used in conjunction with `mode` `"mask"`.
+How to detect how long masks should be. If `"raw"`, the input length will be used (`"b a d .w o r d"` will be converted to `"**************"`). If `"word"`, the length of the base word will be used (`"b a d .w o r d"` will be converted to `"*******"`—length of `"badword"`). Used in conjunction with `mode` `"mask"`.
 
 -   **Type:** `"raw" | "word"`
 -   **Default:** `"word"`
