@@ -66,9 +66,9 @@ export default {
         promiscuous: null
     },
     TAME: {
-        make_love: "have sexual intercourse",
-        making_love: "having sexual intercourse",
-        lovemaking: "having sexual intercourse",
+        make_love: "have sex",
+        making_love: "having sex",
+        lovemaking: "having sex",
         "69": "sex", // (?)
         sixty_nine: "sex",
         six_nine: "sex",
@@ -83,8 +83,8 @@ export default {
         piss_off: "go away",
         piss: "pee",
         dick: "penis",
-        ass: "buttocks",
-        arse: "buttocks",
+        ass: "butt",
+        arse: "butt",
         bollocks: "testicles",
         bugger: "annoyance",
         choad: "penis",
@@ -101,6 +101,13 @@ export default {
         jubblies: "breasts",
         bazoom: "breast",
         // masturbation slang...
+        beat_meat: "masturbate",
+        beat_my_meat: "masturbate",
+        beat_your_meat: "masturbate",
+        beating_meat: "masturbating",
+        beating_my_meat: "masturbating",
+        beating_your_meat: "masturbating",
+        meat_beating: "masturbation",
         jack_off: "masturbate",
         jacking_off: "masturbating",
         jerk_off: "masturbate",
