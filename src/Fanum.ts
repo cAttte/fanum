@@ -4,23 +4,38 @@ import { default as findProfanity } from "./findProfanity"
 import { default as checkProfanity } from "./checkProfanity"
 import { default as censorProfanity } from "./censorProfanity"
 
-export default class Fanum {
-    words: Record<string, string>
-    exceptions: Record<string, Function>
+/**
+ * @typedef FanumOptions
+ * @property {Object<string, string> | string[]} words The word/replacement list to use.
+ * @property {Object<string, Function>} exceptions The exception list to use.
+ * @property {number} maxCharacterSeparation The maximum number of "irrelevant" characters there can be inbetween the characters of a word. For example, if this option is set to `1`, "f..uck" will no longer be considered profane. Can be Infinity.
+ */
+type FanumOptions = {
+    words?: Record<string, string> | string[]
+    exceptions?: Record<string, Function>
+    maxCharacterSeparation?: number
+}
 
-    constructor(
-        words: Record<string, string> | string[] = Object.assign(
-            WORDS.TAME,
-            WORDS.SWEARS,
-            WORDS.INSULTS,
-            WORDS.SLURS
-        ),
-        exceptions: Record<string, Function> = EXCEPTIONS
-    ) {
+/**
+ * Main class.
+ * @class
+ */
+export default class Fanum {
+    options: FanumOptions = {
+        words: Object.assign(WORDS.TAME, WORDS.SWEARS, WORDS.INSULTS, WORDS.SLURS),
+        exceptions: EXCEPTIONS,
+        maxCharacterSeparation: 25
+    }
+
+    /**
+     * @constructor
+     * @param {FanumOptions} options Options to detect profanity.
+     */
+    constructor(options: FanumOptions = {}) {
         // [ "word" ] => { word: null }
-        if (Array.isArray(words)) words = Object.fromEntries(words.map(w => [w, null]))
-        this.words = words
-        this.exceptions = exceptions
+        if (Array.isArray(options.words))
+            options.words = Object.fromEntries(options.words.map(w => [w, null]))
+        Object.assign(this.options, options)
     }
 
     findProfanity = findProfanity
