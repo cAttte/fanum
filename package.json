@@ -14,5 +14,8 @@
     "bugs": {
         "url": "https://github.com/cAttte/fanum/issues"
     },
-    "homepage": "https://github.com/cAttte/fanum#readme"
+    "homepage": "https://github.com/cAttte/fanum#readme",
+    "dependencies": {
+        "pluralize": "^8.0.0"
+    }
 }
