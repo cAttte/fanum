@@ -23,7 +23,7 @@ A JavaScript profanity filter.
 The main class.
 
 ```js
-const Fanum = require("fanum")
+const { Fanum } = require("fanum")
 const fanum = new Fanum()
 
 fanum.checkProfanity("fu ck shi t")
