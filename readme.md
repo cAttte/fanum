@@ -18,6 +18,7 @@ export { WORDS, EXCEPTIONS, Fanum } from "fanum"
 -   [EXCEPTIONS](#exceptions)
 -   [Fanum](#fanum)
     -   [constructor()](#constructoroptions)
+    -   [options](#options-1)
     -   [findProfanity()](#findprofanitytext)
     -   [checkProfanity()](#checkprofanitytext)
     -   [censorProfanity()](#censorprofanitytext-options)
@@ -81,6 +82,19 @@ The profanity found, if any.
 
 -   **Type:** [`Profanity[]`](#Profanity)
 
+### options
+
+The options passed to the constructor. Exposed so that you can modify options after instantiating Fanum. For example:
+
+```js
+const fanum = new Fanum()
+fanum.options.words.bad_word = "nice word"
+fanum.options.exceptions.bad_word = ["not a bad word"]
+// (this would, of course, also include all of the default words)
+```
+
+-   **Type:** [`FanumOptions`](#FanumOptions)
+
 #### checkProfanity(text)
 
 Check whether a string contains profanity.
@@ -126,14 +140,14 @@ Options to detect profanity.
 A list of words (and their replacements) that will be used to detect profanity.
 
 -   **Type:** [`WordList`](#WordList)
--   **Default:** `Object.assign(fanum.WORDS.SWEARS, fanum.WORDS.INSULTS, fanum.WORDS.SLURS)`
+-   **Default:** `Object.assign(WORDS.SWEARS, WORDS.INSULTS, WORDS.SLURS)`
 
 ##### exceptions
 
 A list of exceptions that will ignore certain uses or false positives of profanity.
 
 -   **Type:** [`ExceptionList`](#ExceptionList)
--   **Default:** `fanum.EXCEPTIONS`
+-   **Default:** `EXCEPTIONS`
 
 ##### maxCharacterSeparation
 
