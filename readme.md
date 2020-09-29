@@ -8,15 +8,29 @@ A JavaScript profanity filter.
 
 ## Usage
 
+```js
+const { WORDS, Fanum } = require("fanum")
+// or
+export { WORDS, Fanum } from "fanum"
+```
+
+-   [WORDS](#words)
 -   [Fanum](#fanum)
-    -   [constructor(options?)](#constructoroptions)
-    -   [findProfanity(text)](#findprofanitytext)
-    -   [checkProfanity(text)](#checkprofanitytext)
-    -   [censorProfanity(text, options)](#censorprofanitytext-options)
+    -   [constructor()](#constructoroptions)
+    -   [findProfanity()](#findprofanitytext)
+    -   [checkProfanity()](#checkprofanitytext)
+    -   [censorProfanity()](#censorprofanitytext-options)
+
+<!---->
+
 -   [Typedefs](#typedefs)
     -   [FanumOptions](#fanumoptions)
     -   [Profanities](#profanities)
     -   [CensorOptions](#censoroptions)
+
+### WORDS
+
+Fanum exports a list of bad words by default, split into five different categories: `INAPPROPRIATE`, `TAME`, `SWEARS`, `INSULTS` and `SLURS`. Beware that passing the whole object as the `words` option won't work; you'll have to mix the categories you want into a single object (e.g. `Object.assign(WORDS.INSULTS, WORDS.SLURS)`). Also note that words under the `INAPPROPRIATE` category do not have any replacements, so trying to use them with the `"replace"` `mode` in [censorProfanity()](#censorprofanitytext-options) will throw an error.
 
 ### Fanum
 
