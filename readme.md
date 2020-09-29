@@ -236,9 +236,12 @@ fanum.censorProfanity(unholyString, { mask: ["@", "#", "$", "%", "&", "!"] })
 
 ```js
 const fanum = new Fanum()
-fanum.options.words.very = null
-fanum.options.words.bad = null
 const unholyString = "oh boy, these are some very bad words!"
+
+fanum.options.words.very = "really"
+fanum.options.words.bad = "cool"
 fanum.censorProfanity(unholyString, { mode: "static", mask: "[REDACTED]" })
 // => "oh boy, these are some [REDACTED] [REDACTED] words!"
+fanum.censorProfanity(unholyString, { mode: "replace" })
+// => "oh boy, these are some really cool words!"
 ```
