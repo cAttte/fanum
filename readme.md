@@ -170,7 +170,7 @@ The index in the input string of the word.
 
 ##### word
 
-The "base" or "ID" of the word. For example, `"fuck"`.
+The "base" word; its identifier. For example, `"fuck"`.
 
 -   **Type:** `string`
 
