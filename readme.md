@@ -196,6 +196,8 @@ Options to censor profanity.
 
 If `"mask"`, the `mask` option will be repeated to fit every word. If `"static"`, every word will be replaced with the mask, regardless of their length. If `"replace"`, the words will be replaced with their safe counterparts; if they're unavailable, an error will be thrown.
 
+_You **probably** shouldn't use the `replace` mode, especially if the text to censor is anonymous user input. It will **(a)** cause problems related to context (for example, cases in which a certain word is used for objects but also for people) and **(b)** treat "inherently evil" words (such as slurs) as normal words (for example, replacing the n-word with "black person")._
+
 -   **Type:** `"mask" | "static" | "replace"`
 -   **Default:** `"mask"`
 
