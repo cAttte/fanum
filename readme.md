@@ -26,7 +26,7 @@ export { WORDS, EXCEPTIONS, Fanum } from "fanum"
 
 -   [Typedefs](#typedefs)
     -   [FanumOptions](#fanumoptions)
-    -   [Profanities](#profanities)
+    -   [Profanity](#Profanity)
     -   [CensorOptions](#censoroptions)
     -   [WordList](#wordlist)
     -   [ExceptionList](#exceptionlist)
@@ -79,7 +79,7 @@ The text to search for profanity in.
 
 The profanity found, if any.
 
--   **Type:** [`Profanities`](#Profanities)
+-   **Type:** [`Profanity[]`](#Profanity)
 
 #### checkProfanity(text)
 
@@ -142,11 +142,11 @@ The maximum number of "irrelevant" characters there can be inbetween the charact
 -   **Type:** `number`
 -   **Default:** `25`
 
-#### Profanities
+#### Profanity
 
-A list of profanity found.
+A profane word found.
 
--   **Type:** `Array<{ index, word, raw, replacement }>`
+-   **Type:** `{ index, word, raw, replacement? }`
 
 ##### index
 
