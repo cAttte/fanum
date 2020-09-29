@@ -11,7 +11,7 @@ A JavaScript profanity filter.
 ```js
 const { WORDS, EXCEPTIONS, Fanum } = require("fanum")
 // or
-export { WORDS, EXCEPTIONS, Fanum } from "fanum"
+import { WORDS, EXCEPTIONS, Fanum } from "fanum"
 ```
 
 -   [WORDS](#words)
