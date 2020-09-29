@@ -82,6 +82,7 @@ export default {
         fuck_off: "go away",
         piss_off: "go away",
         piss: "pee",
+        cock: "penis",
         dick: "penis",
         ass: "butt",
         arse: "butt",
