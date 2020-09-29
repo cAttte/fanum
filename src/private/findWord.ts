@@ -38,7 +38,7 @@ export default function findWord(
     while ((match = regex.exec(text)) != null) {
         profanities.push({
             index: match.index,
-            word: word,
+            word: singular || word,
             raw: match[0],
             replacement: singular
                 ? pluralize(this.options.words[singular])
