@@ -1,18 +1,36 @@
 import WORDS from "./data/words"
-import EXCEPTIONS from "./findExceptions"
+import EXCEPTIONS from "./data/exceptions"
 import { default as findProfanity } from "./findProfanity"
 import { default as checkProfanity } from "./checkProfanity"
 import { default as censorProfanity } from "./censorProfanity"
 
 /**
+ * @typedef WordList
+ * @type {Object<string, string> | string[]}
+ */
+type WordList =
+    | {
+          [key: string]: string
+      }
+    | string[]
+
+/**
+ * @typedef ExceptionList
+ * @type {Object<string, Array<string | Function>>}
+ */
+type ExceptionList = {
+    [key: string]: (string | Function)[]
+}
+
+/**
  * @typedef FanumOptions
- * @property {Object<string, string> | string[]} words The word/replacement list to use.
- * @property {Object<string, Function>} exceptions The exception list to use.
+ * @property {WordList} words The word/replacement list to use.
+ * @property {ExceptionList} exceptions The exception list to use.
  * @property {number} maxCharacterSeparation The maximum number of "irrelevant" characters there can be inbetween the characters of a word. For example, if this option is set to `1`, "f..uck" will no longer be considered profane. Can be Infinity.
  */
 type FanumOptions = {
-    words?: Record<string, string> | string[]
-    exceptions?: Record<string, Function>
+    words?: WordList
+    exceptions?: ExceptionList
     maxCharacterSeparation?: number
 }
 
