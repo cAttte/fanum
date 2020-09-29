@@ -9,12 +9,13 @@ A JavaScript profanity filter.
 ## Usage
 
 ```js
-const { WORDS, Fanum } = require("fanum")
+const { WORDS, EXCEPTIONS, Fanum } = require("fanum")
 // or
-export { WORDS, Fanum } from "fanum"
+export { WORDS, EXCEPTIONS, Fanum } from "fanum"
 ```
 
 -   [WORDS](#words)
+-   [EXCEPTIONS](#exceptions)
 -   [Fanum](#fanum)
     -   [constructor()](#constructoroptions)
     -   [findProfanity()](#findprofanitytext)
@@ -27,10 +28,20 @@ export { WORDS, Fanum } from "fanum"
     -   [FanumOptions](#fanumoptions)
     -   [Profanities](#profanities)
     -   [CensorOptions](#censoroptions)
+    -   [WordList](#wordlist)
+    -   [ExceptionList](#exceptionlist)
 
 ### WORDS
 
 Fanum exports a list of bad words by default, split into five different categories: `INAPPROPRIATE`, `TAME`, `SWEARS`, `INSULTS` and `SLURS`. Beware that passing the whole object as the `words` option won't work; you'll have to mix the categories you want into a single object (e.g. `Object.assign(WORDS.INSULTS, WORDS.SLURS)`). Also note that words under the `INAPPROPRIATE` category do not have any replacements, so trying to use them with the `"replace"` `mode` in [censorProfanity()](#censorprofanitytext-options) will throw an error.
+
+-   **Type:** `{ INAPPROPRIATE: WordList, TAME: WordList, SWEARS: WordList, INSULTS: WordList, SLURS: WordList }`
+
+### EXCEPTIONS
+
+It also exports a list of exceptions for some of the default words. These are not divided into categories, though.
+
+-   **Type:** [`ExceptionList`](#ExceptionList)
 
 ### Fanum
 
@@ -112,16 +123,16 @@ Options to detect profanity.
 
 ##### words
 
-The word/replacement list to use.
+A list of words (and their replacements) that will be used to detect profanity.
 
--   **Type:** `Object<string, string> | string[]`
+-   **Type:** [`WordList`](#WordList)
 -   **Default:** `Object.assign(fanum.WORDS.SWEARS, fanum.WORDS.INSULTS, fanum.WORDS.SLURS)`
 
 ##### exceptions
 
-The exception list to use.
+A list of exceptions that will ignore certain uses or false positives of profanity.
 
--   **Type:** `Object<string, string | Function>`
+-   **Type:** [`ExceptionList`](#ExceptionList)
 -   **Default:** `fanum.EXCEPTIONS`
 
 ##### maxCharacterSeparation
@@ -201,6 +212,18 @@ Whether to replicate the style of replaced words. For example, `"fUCK"` will be 
 
 -   **Type:** `boolean`
 -   **Default:** `true`
+
+#### WordList
+
+A list of words (and their replacements) that will be used to detect profanity.
+
+-   **Type:** `{ [key: string]: string? }`
+
+#### ExceptionList
+
+A list of exceptions that will ignore certain uses or false positives of profanity.
+
+-   **Type:** `{ [key: string]: (string | Function)[] }`
 
 ### Examples
 
