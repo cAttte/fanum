@@ -15,23 +15,19 @@ export type Profanity = {
     replacement: string
 }
 
-export default function findWord(
-    text: string,
-    word: string,
-    singular?: string
-): Profanity[] {
+export default function findWord(text: string, word: string, base?: string): Profanity[] {
     const profanities = []
-    const regexBody = createWordRegex(singular, this.options.maxCharacterSeparation)
+    const regexBody = createWordRegex(base, this.options.maxCharacterSeparation)
     const regex = new RegExp(regexBody, "g")
     let match: RegExpExecArray
 
     while ((match = regex.exec(text)) != null) {
         profanities.push({
             index: match.index,
-            word: singular || word,
+            word: base || word,
             raw: match[0],
-            replacement: singular
-                ? pluralize(this.options.words[singular])
+            replacement: base
+                ? pluralize(this.options.words[base])
                 : this.options.words[word] || null
         })
     }
