@@ -237,9 +237,9 @@ A list of words (and their replacements) that will be used to detect profanity.
 
 #### ExceptionList
 
-A list of exceptions that will ignore certain uses or false positives of profanity.
+A list of exceptions that will ignore certain uses or false positives of profanity. You can use words (such as `"Scunthorpe"`) for normal embedded profanity, and functions for more complicated exceptions. Functions should return whether the match _is_ an exception; whether it should be ignored.
 
--   **Type:** `{ [key: string]: (string | Function)[] }`
+-   **Type:** `{ [key: string]: (string | ((match: Profanity, input: string) => boolean))[] }`
 
 ### Examples
 
