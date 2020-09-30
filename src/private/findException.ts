@@ -11,10 +11,10 @@ export default function findException(
     let isException = false
 
     for (const exception of exceptions) {
-        const exceptionSubstringIndex = exception.indexOf(match.word)
-        if (exceptionSubstringIndex === -1) continue
-        const exceptionBefore = exception.slice(0, exceptionSubstringIndex)
-        const exceptionAfter = exception.slice(exceptionSubstringIndex + match.raw.length)
+        const exceptionIndex = exception.indexOf(match.base)
+        if (exceptionIndex === -1) continue
+        const exceptionBefore = exception.slice(0, exceptionIndex)
+        const exceptionAfter = exception.slice(exceptionIndex + match.base.length)
         const exceptionBeforeRegex = new RegExp(createWordRegex(exceptionBefore) + "$")
         const exceptionAfterRegex = new RegExp("^" + createWordRegex(exceptionAfter))
         if (before.match(exceptionBeforeRegex) && after.match(exceptionAfterRegex)) {
