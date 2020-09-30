@@ -97,7 +97,7 @@ export default {
         "coarse",
         "hoarse",
         "sparse",
-        "rehears",
+        "rehearse",
         "parse",
         "parsec",
         "arsen",
