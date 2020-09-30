@@ -121,7 +121,7 @@ export default {
         "cumin",
         "circum", // circum-
         "document", // document, document-
-        "cumulat", // accumulate, accumulative, cumulative, -cumulat-
+        "cumul", // accumulate, accumulative, cumulative, cumulonimbus, -cumul-
         "incumb" // incumb-
     ],
     // WORDS.INSULTS
