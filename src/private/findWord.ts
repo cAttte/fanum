@@ -1,6 +1,5 @@
-import CHARACTERS from "../data/characters"
 import pluralize = require("pluralize")
-import createChooseRegex from "./createChooseRegex"
+import createWordRegex from "./regex/word"
 
 /**
  * @typedef Profanity
@@ -22,16 +21,7 @@ export default function findWord(
     singular?: string
 ): Profanity[] {
     const profanities = []
-    const letters = word.replace(/_/g, "").split("")
-    const max = this.options.maxCharacterSeparation
-    const separator =
-        createChooseRegex(CHARACTERS.IRRELEVANT) + (max === Infinity ? "*" : `{0,${max}}`)
-    const regexBody = letters
-        .map(letter => {
-            const characters = CHARACTERS[letter.toLowerCase()] || [letter]
-            return createChooseRegex(characters)
-        })
-        .join(separator)
+    const regexBody = createWordRegex(singular, this.options.maxCharacterSeparation)
     const regex = new RegExp(regexBody, "g")
     let match: RegExpExecArray
 
