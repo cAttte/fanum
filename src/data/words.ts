@@ -69,9 +69,6 @@ export default {
         make_love: "have sex",
         making_love: "having sex",
         lovemaking: "having sex",
-        "69": "sex", // (?)
-        sixty_nine: "sex",
-        six_nine: "sex",
         biatch: "person",
         crap: "feces"
     },
@@ -95,7 +92,6 @@ export default {
         pussy: "vagina",
         ass_hole: "anus",
         arse_hole: "anus",
-        clit: "clitoris",
         ballsack: "scrotum",
         cum: "semen",
         titty: "breast",
