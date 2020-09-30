@@ -173,7 +173,6 @@ export default {
         niggress: "black woman",
         niggette: "black woman",
         nigglet: "black child",
-        nig: "black person",
         pickaninny: "black child",
         porch_monkey: "black person",
         powder_burn: "black person",
