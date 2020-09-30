@@ -6,6 +6,12 @@ export default {
         "scrap" // scrappy, scrappi-, scrape, skyscraper
     ],
     // WORDS.SWEARS
+    shit: [
+        "shitake", // it's actually spelled "shiitake" but whatever
+        "shithila", // a name
+        "libshitz", // last names
+        "lifshitz" //
+    ],
     cock: [
         "cocky",
         "cockle",
