@@ -143,7 +143,6 @@ export default {
         tard: "person with a mental disability",
         fucktard: "stupid person",
         // https://en.wikipedia.org/wiki/List_of_ethnic_slurs_by_ethnicity
-        abo: "Aboriginal Australian",
         abbo: "Aboriginal Australian",
         boong: "Aboriginal Australian",
         coon: "black person",
