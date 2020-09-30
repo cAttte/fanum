@@ -3,6 +3,7 @@ import EXCEPTIONS from "./data/exceptions"
 import { default as findProfanity } from "./findProfanity"
 import { default as checkProfanity } from "./checkProfanity"
 import { default as censorProfanity } from "./censorProfanity"
+import { Profanity } from "./private/findWord"
 
 /**
  * @typedef WordList
@@ -19,7 +20,7 @@ type WordList =
  * @type {Object<string, Array<string | Function>>}
  */
 type ExceptionList = {
-    [key: string]: (string | Function)[]
+    [key: string]: (string | ((match: Profanity, input: string) => boolean))[]
 }
 
 /**
