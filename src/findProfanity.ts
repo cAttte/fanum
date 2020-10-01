@@ -10,6 +10,7 @@ import { Profanity } from "./private/findWord"
 export default function findProfanity(text: string): Profanity[] {
     let profanities = []
     for (const word of Object.keys(this.options.words)) {
+        if (word.length > text.length) continue
         if (pluralize.isSingular(word)) {
             const plural = pluralize(word)
             const pluralMatches = findWord.bind(this)(text, plural, word)
