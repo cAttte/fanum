@@ -1,6 +1,6 @@
 {
     "name": "fanum",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "A JavaScript profanity filter.",
     "main": "dist/index.js",
     "repository": "cAttte/fanum",
