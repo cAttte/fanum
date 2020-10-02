@@ -1,5 +1,4 @@
-import CHARACTERS from "./data/characters"
-import replicateTextStyle from "./private/replicateTextStyle"
+import censorWord from "./private/censorWord"
 
 /**
  * @typedef CensorOptions
@@ -9,7 +8,7 @@ import replicateTextStyle from "./private/replicateTextStyle"
  * @property {boolean} maskIrrelevantCharacters Whether to mask "irrelevant" or non-letter characters. For example, if this option is false, `"f uc  k"` will be masked as `"* **  *"`. Used in conjunction with `maskLengthBehavior` `"raw"` and `mode` `"mask"`.
  * @property {boolean} replicateTextStyle Whether to replicate the style of replaced words. For example, `"fUCK"` will be replaced as `"fRICK"`. Used in conjunction with `mode` `"replace"`.
  */
-type CensorOptions = {
+export type CensorOptions = {
     mode?: "mask" | "static" | "replace"
     mask?: string | string[]
     maskLengthBehavior?: "raw" | "word"
@@ -26,53 +25,24 @@ export default function censorProfanity(
     text: string,
     {
         mode = "mask",
-        mask: maskCharacter = "*",
+        mask = "*",
         maskLengthBehavior = "word",
         maskIrrelevantCharacters = true,
-        replicateTextStyle: replicateTextStyleOption = true
+        replicateTextStyle = true
     }: CensorOptions = {}
 ): string {
-    for (const profanity of this.findProfanity(text)) {
-        text = text.replace(profanity.raw, match => {
-            if (mode === "mask") {
-                const word = maskLengthBehavior === "raw" ? match : profanity.word
-                const mask = Array.isArray(maskCharacter)
-                    ? Array(match.length)
-                          .fill(null)
-                          .map(() => {
-                              return maskCharacter[
-                                  Math.floor(Math.random() * maskCharacter.length)
-                              ]
-                          })
-                          .join("")
-                          .slice(0, word.length)
-                    : maskCharacter.repeat(match.length).slice(0, word.length)
-                if (maskIrrelevantCharacters) {
-                    return mask
-                } else {
-                    let masked = ""
-                    let i = 0
-                    for (const character of match) {
-                        if (CHARACTERS.IRRELEVANT.includes(character)) masked += character
-                        else masked += mask[i]
-                        i++
-                    }
-                    return masked
-                }
-            } else if (mode === "static") {
-                const mask = Array.isArray(maskCharacter)
-                    ? maskCharacter[Math.floor(Math.random() * maskCharacter.length)]
-                    : maskCharacter
-                return mask
-            } else if (mode === "replace") {
-                if (!profanity.replacement)
-                    throw new Error(`Replacement for "${profanity.word}" unavailable.`)
-                return replicateTextStyleOption
-                    ? replicateTextStyle(profanity.replacement, profanity.raw)
-                    : profanity.replacement
-            }
-            return match
-        })
+    const options = {
+        mode,
+        mask,
+        maskLengthBehavior,
+        maskIrrelevantCharacters,
+        replicateTextStyle
+    }
+
+    for (const match of this.findProfanity(text)) {
+        const start = match.index
+        const end = match.index + match.raw.length
+        text = text.slice(0, start) + censorWord(match, options) + text.slice(end)
     }
     return text
 }
