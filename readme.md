@@ -42,7 +42,7 @@ Fanum exports a list of bad words by default, split into five different categori
 
 It also exports a list of exceptions for some of the default words. These are not divided into categories, though.
 
--   **Type:** [`ExceptionList`](#ExceptionList)
+-   **Type:** [`ExceptionList`](#exceptionlist)
 
 ### Fanum
 
@@ -64,7 +64,7 @@ fanum.censorProfanity("holy sh.1t what the f uck")
 
 Options to detect profanity.
 
--   **Type:** [`FanumOptions`](#FanumOptions)
+-   **Type:** [`FanumOptions`](#fanumoptions)
 
 #### findProfanity(text)
 
@@ -80,7 +80,7 @@ The text to search for profanity in.
 
 The profanity found, if any.
 
--   **Type:** [`Profanity[]`](#Profanity)
+-   **Type:** [`Profanity[]`](#profanity)
 
 ### options
 
@@ -93,7 +93,7 @@ fanum.options.exceptions.bad_word = ["not a bad word"]
 // (this would, of course, also include all of the default words)
 ```
 
--   **Type:** [`FanumOptions`](#FanumOptions)
+-   **Type:** [`FanumOptions`](#fanumoptions)
 
 #### checkProfanity(text)
 
@@ -125,7 +125,7 @@ The text to censor profanity in.
 
 Options to censor profanity.
 
--   **Type:** [`CensorOptions`](#CensorOptions)
+-   **Type:** [`CensorOptions`](#censoroptions)
 
 ### Typedefs
 
@@ -139,14 +139,14 @@ Options to detect profanity.
 
 A list of words (and their replacements) that will be used to detect profanity.
 
--   **Type:** [`WordList`](#WordList)
+-   **Type:** [`WordList`](#wordlist)
 -   **Default:** `Object.assign(WORDS.SWEARS, WORDS.INSULTS, WORDS.SLURS)`
 
 ##### exceptions
 
 A list of exceptions that will ignore certain uses or false positives of profanity.
 
--   **Type:** [`ExceptionList`](#ExceptionList)
+-   **Type:** [`ExceptionList`](#exceptionlist)
 -   **Default:** `EXCEPTIONS`
 
 ##### extendWordList
