@@ -29,9 +29,10 @@ export default function findWord(text: string, word: string, base?: string): Pro
             word: word,
             base: base || word,
             raw: match[0],
-            replacement: base
-                ? pluralize(this.options.words[base])
-                : this.options.words[word] || null
+            replacement:
+                base && this.options.words[base]
+                    ? pluralize(this.options.words[base])
+                    : this.options.words[word] || null
         })
     }
     return profanities
