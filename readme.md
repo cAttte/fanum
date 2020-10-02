@@ -149,6 +149,13 @@ A list of exceptions that will ignore certain uses or false positives of profani
 -   **Type:** [`ExceptionList`](#ExceptionList)
 -   **Default:** `EXCEPTIONS`
 
+##### extendWordList
+
+Whether the provided word and/or exception lists should be "merged" with the default word lists. Useful if you want to extend them and don't want to add the words manually after instantiation. This option is only used within the constructor; mutating it after instantiation has no effect.
+
+-   **Type:** `boolean`
+-   **Default:** `false`
+
 ##### maxCharacterSeparation
 
 The maximum number of "irrelevant" characters there can be inbetween the characters of a word. For example, if this option is set to `1`, "f..uck" will no longer be considered profane. Can be _Infinity_.
