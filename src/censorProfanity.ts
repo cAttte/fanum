@@ -39,10 +39,17 @@ export default function censorProfanity(
         replicateTextStyle
     }
 
-    for (const match of this.findProfanity(text)) {
-        const start = match.index
-        const end = match.index + match.raw.length
-        text = text.slice(0, start) + censorWord(match, options) + text.slice(end)
+    const profanity = this.findProfanity(text).sort((a, b) =>
+        a.index > b.index ? 1 : -1
+    )
+
+    let offset = 0
+    for (const match of profanity) {
+        const start = match.index + offset
+        const end = match.index + offset + match.raw.length
+        const censored = censorWord(match, options)
+        text = text.slice(0, start) + censored + text.slice(end)
+        offset += censored.length - match.raw.length
     }
     return text
 }
