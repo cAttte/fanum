@@ -28,6 +28,7 @@ export default {
         "petcock",
         "seacock",
         "cockapoo",
+        "cockatiel",
         "cockatoo",
         "cockbill",
         "cockboat",
